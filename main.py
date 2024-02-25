@@ -41,10 +41,12 @@ def main():
             countingTable.insert_flow(packetFlow, flow_type=OLD_FLOW)
         else:
             countingTable.insert_flow(packetFlow, flow_type=NEW_FLOW)
-    
+        
+        print("Bloom Filter")
         print_bloom_filter(bloom_filter=bloomFilter.bloom_filter)
+        print("Counting Table")
         print_counting_table(counting_table=countingTable.ctable)
-
+        print(f"False Positive Rate:{bloomFilter.compute_false_positive_rate()}")
         timeInterval: int = randint(1,4)
         sleep(timeInterval)
 
